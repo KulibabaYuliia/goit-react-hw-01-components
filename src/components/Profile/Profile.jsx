@@ -1,29 +1,39 @@
-import css from './Profile.module.css';
+import {
+  ProfileWrapper,
+  UserInfoWrapper,
+  Avatar,
+  UserName,
+  UserTag,
+  UserLocation,
+  StatsList,
+  StatsLabel,
+  StatsQtt,
+} from './Profile.styled';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img src={avatar} alt={username} className={css.avatar} />
-        <p className={css.name}>{username}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
-      </div>
+    <ProfileWrapper>
+      <UserInfoWrapper>
+        <Avatar src={avatar} alt={username} />
+        <UserName>{username}</UserName>
+        <UserTag>@{tag}</UserTag>
+        <UserLocation>{location}</UserLocation>
+      </UserInfoWrapper>
 
-      <ul className={css.stats}>
+      <StatsList>
         <li>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{stats.followers}</span>
+          <StatsLabel>Followers</StatsLabel>
+          <StatsQtt>{stats.followers}</StatsQtt>
         </li>
         <li>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{stats.views}</span>
+          <StatsLabel>Views</StatsLabel>
+          <StatsQtt>{stats.views}</StatsQtt>
         </li>
         <li>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{stats.likes}</span>
+          <StatsLabel>Likes</StatsLabel>
+          <StatsQtt>{stats.likes}</StatsQtt>
         </li>
-      </ul>
-    </div>
+      </StatsList>
+    </ProfileWrapper>
   );
 };

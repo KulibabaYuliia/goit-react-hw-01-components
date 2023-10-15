@@ -1,32 +1,30 @@
-import css from './Statistics.module.css';
+import {
+  StatisticsWrapper,
+  UploadStatsList,
+  UploadStatsItem,
+  UploadStatsItemLabel,
+  UploadStatsItemAmount,
+} from './Statistics.styled';
 
 export const Statistics = ({ title, stats }) => {
   return (
-    <section className={css.statistics}>
+    <StatisticsWrapper>
       {title && <h2>{title}</h2>}
 
-      <ul className={css.statList}>
+      <UploadStatsList>
         {stats.map(stat => {
-          const bgColor = getRandomHexColor();
+          // const bgColor = getRandomHexColor();
 
           return (
-            <li
-              className={css.item}
-              key={stat.id}
-              style={{ backgroundColor: bgColor }}
-            >
-              <span className={css.label}>{stat.label}</span>
-              <span className={css.percentage}>{stat.percentage}</span>
-            </li>
+            <UploadStatsItem key={stat.id}>
+              <UploadStatsItemLabel>{stat.label}</UploadStatsItemLabel>
+              <UploadStatsItemAmount className="fff">
+                {stat.percentage}
+              </UploadStatsItemAmount>
+            </UploadStatsItem>
           );
         })}
-      </ul>
-    </section>
+      </UploadStatsList>
+    </StatisticsWrapper>
   );
 };
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}

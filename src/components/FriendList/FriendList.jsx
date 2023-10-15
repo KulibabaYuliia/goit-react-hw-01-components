@@ -1,10 +1,8 @@
-import css from './FriendList.module.css';
-
 import { FriendListItem } from '../FriendListItem/FriendListItem';
 
 export const FriendList = ({ friends }) => {
   return (
-    <ul className={css.friendList}>
+    <ul>
       {friends.map(friend => {
         return (
           <FriendListItem
